@@ -17,7 +17,7 @@ module.exports = PrivateKey;
 
 /**
   @typedef {string} wif - https://en.bitcoin.it/wiki/Wallet_import_format
-  @typedef {string} pubkey - EOSKey..
+  @typedef {string} pubkey - VEXKey..
   @typedef {ecurve.Point} Point
 */
 
@@ -221,7 +221,7 @@ PrivateKey.fromWif = function(str) {
 
 /**
     @throws {AssertError|Error} parsing key
-    @arg {string} privateStr Eosio or Wallet Import Format (wif) -- a secret
+    @arg {string} privateStr VexChain or Wallet Import Format (wif) -- a secret
 */
 PrivateKey.fromString = function(privateStr) {
     return parseKey(privateStr).privateKey
@@ -292,9 +292,9 @@ function unitTest() {
 
   const pub = pvt.toPublic()
   const pubError = 'pubkey string comparison test failed on a known public key'
-  assert.equal(pub.toString(), 'EOS859gxfnXyUriMgUeThh1fWv3oqcpLFyHa3TfFYC4PK2HqhToVM', pubError)
+  assert.equal(pub.toString(), 'VEX859gxfnXyUriMgUeThh1fWv3oqcpLFyHa3TfFYC4PK2HqhToVM', pubError)
   // assert.equal(pub.toString(), 'PUB_K1_859gxfnXyUriMgUeThh1fWv3oqcpLFyHa3TfFYC4PK2Ht7beeX', pubError)
-  // assert.equal(pub.toStringLegacy(), 'EOS859gxfnXyUriMgUeThh1fWv3oqcpLFyHa3TfFYC4PK2HqhToVM', pubError)
+  // assert.equal(pub.toStringLegacy(), 'VEX859gxfnXyUriMgUeThh1fWv3oqcpLFyHa3TfFYC4PK2HqhToVM', pubError)
 
   doesNotThrow(() => PrivateKey.fromString(pvt.toWif()), 'converting known wif from string')
   doesNotThrow(() => PrivateKey.fromString(pvt.toString()), 'converting known pvt from string')

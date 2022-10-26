@@ -1,5 +1,5 @@
 {
-  "name": "eosjs-ecc",
+  "name": "gensjs-ecc",
   "version": "4.0.8",
   "description": "Elliptic curve cryptography functions",
   "keywords": [
@@ -24,17 +24,17 @@
     "coveralls": "yarn coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "build": "yarn build_lib && yarn build_browser",
     "build_lib": "rm -f lib/* && babel src --out-dir lib",
-    "build_browser": "mkdir -p lib && browserify -o lib/eosjs-ecc.js -s eosjs_ecc lib/index.js",
+    "build_browser": "mkdir -p lib && browserify -o lib/gensjs-ecc.js -s gensjs_ecc lib/index.js",
     "build_browser_test": "yarn build && browserify -o dist/test.js lib/*.test.js",
     "documentation": "node_modules/documentation/bin/documentation.js",
-    "minimize": "terser lib/eosjs-ecc.js -o lib/eosjs-ecc.min.js --source-map --compress --mangle",
+    "minimize": "terser lib/gensjs-ecc.js -o lib/gensjs-ecc.min.js --source-map --compress --mangle",
     "docs": "yarn documentation -- readme src/api_common.js --section \"Common API\" --shallow",
-    "srisum": "npx srisum lib/eosjs-ecc.*",
+    "srisum": "npx srisum lib/gensjs-ecc.*",
     "prepublishOnly": "yarn build && yarn minimize && yarn test_lib && yarn docs"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/EOSIO/eosjs-ecc.git"
+    "url": "git://github.com/genesisblockid/gensjs-ecc.git"
   },
   "dependencies": {
     "@babel/runtime": "7.6.0",
