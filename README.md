@@ -8,9 +8,9 @@ Private Key, Public Key, Signature, AES, Encryption / Decryption
 # Import
 
 ```js
-import ecc from 'eosjs-ecc'
+import ecc from "eosjs-ecc";
 // or
-const ecc = require('eosjs-ecc')
+const ecc = require("eosjs-ecc");
 ```
 
 # Include
@@ -20,21 +20,22 @@ const ecc = require('eosjs-ecc')
 
 ```html
 <html>
-<head>
-  <meta charset="utf-8">
-  <!--
+  <head>
+    <meta charset="utf-8" />
+    <!--
   sha512-cL+IQQaQ586s9DrXfGtDheRpj5iDKh2M+xlpfwbhNjRIp4BGQ1fkM/vB4Ta8mc+f51YBW9sJiPcyMDIreJe6gQ== lib/eosjs-ecc.js
   sha512-dYFDmK/d9r3/NCp6toLtfkwOjSMRBaEzaGAx1tfRItC0nsI0hVLERk05iNBQR7uDNI7ludYhcBI4vUiFHdjsTQ== lib/eosjs-ecc.min.js
   sha512-eq1SCoSe38uR1UVuQMwR73VgY8qKTBDc87n2nIiC5WLhn1o2y1U6c5wY8lrigVX7INM8fM0PxDlMX5WvpghKig== lib/eosjs-ecc.min.js.map
   -->
-  <script src="https://cdn.jsdelivr.net/npm/eosjs-ecc@4.0.4/lib/eosjs-ecc.min.js"
-    integrity="sha512-dYFDmK/d9r3/NCp6toLtfkwOjSMRBaEzaGAx1tfRItC0nsI0hVLERk05iNBQR7uDNI7ludYhcBI4vUiFHdjsTQ=="
-    crossorigin="anonymous"></script>
-
-</head>
-<body>
-  See console object: eosjs_ecc
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/eosjs-ecc@4.0.4/lib/eosjs-ecc.min.js"
+      integrity="sha512-dYFDmK/d9r3/NCp6toLtfkwOjSMRBaEzaGAx1tfRItC0nsI0hVLERk05iNBQR7uDNI7ludYhcBI4vUiFHdjsTQ=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    See console object: eosjs_ecc
+  </body>
 </html>
 ```
 
@@ -118,7 +119,7 @@ Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 ```javascript
 ecc.randomKey().then(privateKey => {
 console.log('Private Key:\t', privateKey) // wif
-console.log('Public Key:\t', ecc.privateToPublic(privateKey)) // EOSkey...
+console.log('Public Key:\t', ecc.privateToPublic(privateKey)) // VEXkey...
 })
 ```
 
@@ -145,7 +146,7 @@ Returns **[wif](#wif)**
 #### Parameters
 
 -   `wif` **[wif](#wif)** 
--   `pubkey_prefix` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** public key prefix (optional, default `'EOS'`)
+-   `pubkey_prefix` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** public key prefix (optional, default `'VEX'`)
 
 #### Examples
 
@@ -159,8 +160,8 @@ Returns **[pubkey](#pubkey)**
 
 #### Parameters
 
--   `pubkey` **[pubkey](#pubkey)** like EOSKey..
--   `pubkey_prefix` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**  (optional, default `'EOS'`)
+-   `pubkey` **[pubkey](#pubkey)** like VEXKey..
+-   `pubkey_prefix` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**  (optional, default `'VEX'`)
 
 #### Examples
 
@@ -238,7 +239,7 @@ Recover the public key used to create the signature.
 
 #### Parameters
 
--   `signature` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Buffer](https://nodejs.org/api/buffer.html))** (EOSbase58sig.., Hex, Buffer)
+-   `signature` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Buffer](https://nodejs.org/api/buffer.html))** (VEXbase58sig.., Hex, Buffer)
 -   `data` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Buffer](https://nodejs.org/api/buffer.html))** full data
 -   `encoding` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** data encoding (if data is a string) (optional, default `'utf8'`)
 
@@ -254,7 +255,7 @@ Returns **[pubkey](#pubkey)**
 
 #### Parameters
 
--   `signature` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Buffer](https://nodejs.org/api/buffer.html))** (EOSbase58sig.., Hex, Buffer)
+-   `signature` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Buffer](https://nodejs.org/api/buffer.html))** (VEXbase58sig.., Hex, Buffer)
 -   `dataSha256` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Buffer](https://nodejs.org/api/buffer.html))** sha256 hash 32 byte buffer or hex string
 -   `encoding` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** dataSha256 encoding (if dataSha256 is a string) (optional, default `'hex'`)
 
@@ -282,21 +283,28 @@ Returns **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ## pubkey
 
-EOSKey..
+VEXKey..
 
 Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 # Usage (Object API)
 
 ```js
-let {PrivateKey, PublicKey, Signature, Aes, key_utils, config} = require('eosjs-ecc')
+let {
+  PrivateKey,
+  PublicKey,
+  Signature,
+  Aes,
+  key_utils,
+  config,
+} = require("eosjs-ecc");
 
 // Create a new random private key
-let privateWif
-PrivateKey.randomKey().then(privateKey => privateWif = privateKey.toWif())
+let privateWif;
+PrivateKey.randomKey().then((privateKey) => (privateWif = privateKey.toWif()));
 
 // Convert to a public key
-pubkey = PrivateKey.fromString(privateWif).toPublic().toString()
+pubkey = PrivateKey.fromString(privateWif).toPublic().toString();
 ```
 
 -   [PrivateKey](./src/key_private.js)
@@ -318,14 +326,14 @@ yarn build_browser
 ```
 
 ```html
-<script src=eosjs-ecc.js></script>
+<script src="eosjs-ecc.js"></script>
 ```
 
 ```js
-var ecc = eosjs_ecc
+var ecc = eosjs_ecc;
 
-ecc.randomKey().then(privateWif =>  {
-  var pubkey = ecc.privateToPublic(privateWif)
-  console.log(pubkey)
-})
+ecc.randomKey().then((privateWif) => {
+  var pubkey = ecc.privateToPublic(privateWif);
+  console.log(pubkey);
+});
 ```
